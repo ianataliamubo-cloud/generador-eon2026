@@ -51,9 +51,9 @@ FORMATOS = {
             "dia": (230, 2970),
             "ano": (230, 3077),
             "hora": (860, 2983),
-            "lugar": (2952, 2982),
-            "direccion": (2952, 3050),
-            "publico": (2952, 3343)
+            "lugar": (1287, 2982),
+            "direccion": (1287, 3050),
+            "publico": (1287, 3343)
         },
         "ancho_caja_desc": 1960,
         "tamano_fuente_desc": 50,
