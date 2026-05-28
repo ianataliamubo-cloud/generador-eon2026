@@ -48,12 +48,12 @@ FORMATOS = {
         "coords": {
             "desc": (234, 2394),
             "ciudad": (281, 573),
-            "dia": (234, 2960),
-            "ano": (140, 2750),
-            "hora": (770, 2730),
-            "lugar": (1350, 2660),
-            "direccion": (1350, 2740),
-            "publico": (1287, 3352)
+            "dia": (230, 2970),
+            "ano": (230, 3077),
+            "hora": (860, 2983),
+            "lugar": (2952, 2982),
+            "direccion": (2952, 3050),
+            "publico": (2952, 3343)
         },
         "ancho_caja_desc": 1960,
         "tamano_fuente_desc": 50,
