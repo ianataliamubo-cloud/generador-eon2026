@@ -18,13 +18,13 @@ FORMATOS = {
         "escala_alto": 900,  
         "coords": {
             "desc": (140, 1530),
-            "ciudad": (155, 185),
+            "ciudad": (249, 261),
             "dia": (513, 2279),
             "ano": (513, 2356),
-            "hora": (890, 2170),
-            "lugar": (1430, 2100),
-            "direccion": (1430, 2170),
-            "publico": (1500, 2430)
+            "hora": (1125, 2309),
+            "lugar": (1355, 2289),
+            "direccion": (1355, 2356),
+            "publico": (1321, 2550)
         },
         "ancho_caja_desc": 1960,
         "tamano_fuente_desc": 48,
@@ -37,10 +37,10 @@ FORMATOS = {
         "ancho_caja_direccion": 730,
         "tamano_fuente_publico": 50,
         "ancho_max_fecha": 405,
-        "ancho_max_hora": 450,
-        "ancho_max_lugar": 700,
-        "ancho_max_direccion": 730,
-        "ancho_max_publico": 600
+        "ancho_max_hora": 319,
+        "ancho_max_lugar": 619,
+        "ancho_max_direccion": 619,
+        "ancho_max_publico": 701
     },
     "Historia": {
         "archivo": "assets/PLANTILLA-EON-2026_HISTORIA.png",
