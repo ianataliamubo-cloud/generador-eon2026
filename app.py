@@ -21,7 +21,7 @@ FORMATOS = {
             "ciudad": (247, 261),
             "dia": (513, 2255),
             "ano": (513, 2367),
-            "hora": (1125, 2309),
+            "hora": (1137, 2309),
             "lugar": (1355, 2289),
             "direccion": (1355, 2356),
             "publico": (1321, 2550)
@@ -122,14 +122,8 @@ with col_controles:
         for i, fmt in enumerate(["Post (Instagram)", "Historia"]):
             d = defaults_ciu[fmt]
             with tabs_ciu[i]:
-                c1, c2, c3 = st.columns(3)
-                with c1:
-                    t_ciu_off = st.number_input(f"Tamaño (±px)", value=d["t"], step=1, key=f"t_ciu_{fmt}")
-                with c2:
-                    x_ciu_off = st.number_input(f"Mover X (px)", value=d["x"], step=1, key=f"x_ciu_{fmt}")
-                with c3:
-                    y_ciu_off = st.number_input(f"Mover Y (px)", value=d["y"], step=1, key=f"y_ciu_{fmt}")
-                ajustes_ciudad[fmt] = {"t": t_ciu_off, "x": x_ciu_off, "y": y_ciu_off}
+                t_ciu_off = st.number_input(f"Tamaño Ciudad (±px)", value=d["t"], step=1, key=f"t_ciu_{fmt}")
+                ajustes_ciudad[fmt] = {"t": t_ciu_off}
                 
     with st.expander("🖼️ Ajustes de Foto de Fondo"):
         tabs_foto = st.tabs(["Post (Instagram)", "Historia"])
@@ -310,10 +304,10 @@ with col_preview:
                 final_ancho = config["ancho_caja_desc"]
                 dibujar_parrafo(descripcion_txt, coords_base["desc"], final_tamano, "#1e3a5c", "Regular", final_ancho)
                 
-                # 2. Ciudad + Ajuste X e Y dinámico
-                ajuste_ciu = ajustes_ciudad.get(formato, {"t": 0, "x": 0, "y": 0})
-                coord_ciu_x = coords_base["ciudad"][0] + ajuste_ciu["x"]
-                coord_ciu_y = coords_base["ciudad"][1] + ajuste_ciu["y"]
+                # 2. Ciudad + Ajuste de tamaño dinámico
+                ajuste_ciu = ajustes_ciudad.get(formato, {"t": 0})
+                coord_ciu_x = coords_base["ciudad"][0]
+                coord_ciu_y = coords_base["ciudad"][1]
                 tam_ciu = config.get("tamano_fuente_ciudad", 80) + ajuste_ciu["t"]
                 
                 dibujar_linea(municipio.upper(), (coord_ciu_x, coord_ciu_y), tam_ciu, "#FFFFFF", "Bold", alineacion="left")
