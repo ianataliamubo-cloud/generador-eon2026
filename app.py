@@ -3,6 +3,19 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
 import io
 import textwrap
 
+# Compatibilidad con distintas versiones de Pillow
+try:
+    RESAMPLE_BICUBIC = Image.Resampling.BICUBIC
+    RESAMPLE_LANCZOS = Image.Resampling.LANCZOS
+except AttributeError:
+    RESAMPLE_BICUBIC = Image.BICUBIC
+    RESAMPLE_LANCZOS = Image.LANCZOS
+
+try:
+    TRANSFORM_EXTENT = Image.EXTENT
+except AttributeError:
+    TRANSFORM_EXTENT = Image.Transform.EXTENT
+
 # ==========================================
 # 1. CONFIGURACIÓN INICIAL
 # ==========================================
@@ -221,14 +234,14 @@ with col_preview:
                     
                     foto_ajustada = img_ciudad.transform(
                         (w_hueco, h_hueco),
-                        Image.EXTENT,
+                        TRANSFORM_EXTENT,
                         (left, upper, right, lower),
-                        resample=Image.Resampling.BICUBIC
+                        resample=RESAMPLE_BICUBIC
                     )
                     
                     lienzo.paste(foto_ajustada, (bbox[0], bbox[1]))
                 else:
-                    foto_ajustada = ImageOps.fit(img_ciudad, (ancho_p, alto_p), method=Image.Resampling.LANCZOS, centering=(0.5, 0.5))
+                    foto_ajustada = ImageOps.fit(img_ciudad, (ancho_p, alto_p), method=RESAMPLE_LANCZOS, centering=(0.5, 0.5))
                     lienzo.paste(foto_ajustada, (0, 0))
                 lienzo = Image.alpha_composite(lienzo, img_plantilla)
                 
