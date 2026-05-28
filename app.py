@@ -36,7 +36,11 @@ FORMATOS = {
         "tamano_fuente_direccion": 28,
         "ancho_caja_direccion": 730,
         "tamano_fuente_publico": 50,
-        "ancho_max_fecha": 405
+        "ancho_max_fecha": 405,
+        "ancho_max_hora": 450,
+        "ancho_max_lugar": 700,
+        "ancho_max_direccion": 730,
+        "ancho_max_publico": 600
     },
     "Historia": {
         "archivo": "assets/PLANTILLA-EON-2026_HISTORIA.png",
@@ -61,7 +65,11 @@ FORMATOS = {
         "tamano_fuente_direccion": 28,
         "ancho_caja_direccion": 780,
         "tamano_fuente_publico": 55,
-        "ancho_max_fecha": 280
+        "ancho_max_fecha": 280,
+        "ancho_max_hora": 450,
+        "ancho_max_lugar": 750,
+        "ancho_max_direccion": 780,
+        "ancho_max_publico": 650
     }
 }
 
@@ -337,6 +345,52 @@ with col_preview:
                     if draw.textlength(ano_txt, font=font_test) <= ancho_max_fecha:
                         break
                     final_tam_ano -= 1
+                
+                # Auto-ajuste para Hora
+                ancho_max_hora = config.get("ancho_max_hora", 450)
+                while tam_hora > 15:
+                    font_test = obtener_fuente("Bold", tam_hora)
+                    if draw.textlength(hora_txt, font=font_test) <= ancho_max_hora:
+                        break
+                    tam_hora -= 1
+                
+                # Auto-ajuste para Lugar
+                ancho_max_lugar = config.get("ancho_max_lugar", 700)
+                while tam_lugar > 15:
+                    font_test = obtener_fuente("Bold", tam_lugar)
+                    if draw.textlength(lugar_txt, font=font_test) <= ancho_max_lugar:
+                        break
+                    tam_lugar -= 1
+                
+                # Auto-ajuste para Dirección (Reducir si ocupa más de 2 líneas)
+                ancho_max_dir = config.get("ancho_max_direccion", ancho_dir)
+                while tam_dir > 12:
+                    font_test = obtener_fuente("Regular", tam_dir)
+                    lineas_dir = []
+                    for parrafo in direccion_txt.split('\n'):
+                        palabras = parrafo.split()
+                        linea_actual = ""
+                        for palabra in palabras:
+                            test_line = linea_actual + (" " if linea_actual else "") + palabra
+                            if draw.textlength(test_line, font=font_test) <= ancho_max_dir:
+                                linea_actual = test_line
+                            else:
+                                if linea_actual:
+                                    lineas_dir.append(linea_actual)
+                                linea_actual = palabra
+                        if linea_actual:
+                            lineas_dir.append(linea_actual)
+                    if len(lineas_dir) <= 2:
+                        break
+                    tam_dir -= 1
+
+                # Auto-ajuste para Público Objetivo
+                ancho_max_pub = config.get("ancho_max_publico", 600)
+                while tam_pub > 15:
+                    font_test = obtener_fuente("Bold", tam_pub)
+                    if draw.textlength(publico_txt, font=font_test) <= ancho_max_pub:
+                        break
+                    tam_pub -= 1
                 
                 # Formatos que separan día y año
                 # La coordenada Y del año se calcula dinámicamente para que no se sobreponga
