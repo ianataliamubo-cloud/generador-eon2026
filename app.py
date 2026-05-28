@@ -6,8 +6,8 @@ import textwrap
 # ==========================================
 # 1. CONFIGURACIÓN INICIAL
 # ==========================================
-st.set_page_config(page_title="Generador EON 2026", layout="wide")
-st.title("Automatización de Piezas EON 2026 - CNSC")
+st.set_page_config(page_title="SOCIALIZACIONES EON 2026", layout="wide")
+st.title("SOCIALIZACIONES EON 2026")
 
 # ==========================================
 # 2. CONFIGURACIÓN POR FORMATO
