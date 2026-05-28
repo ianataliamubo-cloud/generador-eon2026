@@ -46,7 +46,7 @@ FORMATOS = {
         "archivo": "assets/PLANTILLA-EON-2026_HISTORIA.png",
         "escala_alto": 1200, 
         "coords": {
-            "desc": (234, 22384),
+            "desc": (234, 2394),
             "ciudad": (281, 573),
             "dia": (234, 2960),
             "ano": (140, 2750),
@@ -57,7 +57,7 @@ FORMATOS = {
         },
         "ancho_caja_desc": 1960,
         "tamano_fuente_desc": 50,
-        "tamano_fuente_ciudad": 110,
+        "tamano_fuente_ciudad": 500,
         "tamano_fuente_dia": 55,
         "tamano_fuente_ano": 45,
         "tamano_fuente_hora": 55,
