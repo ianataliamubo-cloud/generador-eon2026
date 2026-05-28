@@ -26,7 +26,7 @@ FORMATOS = {
             "direccion": (1355, 2356),
             "publico": (1321, 2550)
         },
-        "ancho_caja_desc": 1698,
+        "ancho_caja_desc": 1709,
         "tamano_fuente_desc": 70,
         "tamano_fuente_ciudad": 164,
         "tamano_fuente_dia": 92,
