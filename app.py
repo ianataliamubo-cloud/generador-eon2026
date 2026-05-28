@@ -397,10 +397,10 @@ with col_preview:
                 coord_ano_dinamica = (coords_base["dia"][0], coords_base["dia"][1] + int(final_tam_dia * 1.15))
                 dibujar_linea(dia_txt, coords_base["dia"], final_tam_dia, "#1e3a5c", "Bold", alineacion="left")
                 dibujar_linea(ano_txt, coord_ano_dinamica, final_tam_ano, "#1e3a5c", "Regular", alineacion="left")
-                dibujar_linea(hora_txt, coords_base["hora"], tam_hora, "#1e3a5c", "Bold")
+                dibujar_linea(hora_txt, coords_base["hora"], tam_hora, "#1e3a5c", "Bold", alineacion="center")
                 dibujar_linea(lugar_txt, coords_base["lugar"], tam_lugar, "#1e3a5c", "Bold")
                 dibujar_parrafo(direccion_txt, coords_base["direccion"], tam_dir, "#1e3a5c", "Regular", ancho_dir, justificar=False)
-                dibujar_linea(publico_txt, coords_base["publico"], tam_pub, "#1e3a5c", "Bold")
+                dibujar_linea(publico_txt, coords_base["publico"], tam_pub, "#FFFFFF", "Bold")
 
                 st.image(lienzo, use_container_width=True)
                 
