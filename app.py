@@ -310,7 +310,7 @@ with col_preview:
                 coord_ciu_y = coords_base["ciudad"][1]
                 tam_ciu = config.get("tamano_fuente_ciudad", 80) + ajuste_ciu["t"]
                 
-                dibujar_linea(municipio.upper(), (coord_ciu_x, coord_ciu_y), tam_ciu, "#FFFFFF", "Bold", alineacion="left")
+                dibujar_linea(municipio, (coord_ciu_x, coord_ciu_y), tam_ciu, "#FFFFFF", "Bold", alineacion="left")
                 
                 # 3. Datos fijos 
                 tam_dia_base = config.get("tamano_fuente_dia", 40)
