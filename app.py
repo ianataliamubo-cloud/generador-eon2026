@@ -52,7 +52,7 @@ FORMATOS = {
             "ano": (230, 3053),
             "hora": (1027, 2983),
             "lugar": (1287, 2952),
-            "direccion": (1287, 3040),
+            "direccion": (1287, 3035),
             "publico": (1287, 3340)
         },
         "ancho_caja_desc": 1798,
