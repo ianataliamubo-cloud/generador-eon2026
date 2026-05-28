@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image, ImageDraw, ImageFont, ImageOps
+from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
 import io
 import textwrap
 
@@ -312,8 +312,21 @@ with col_preview:
                 # Centrado vertical automático: restamos un porcentaje del tamaño de fuente a la Y del centro del pin
                 coord_ciu_y = coords_base["ciudad"][1] - int(tam_ciu * 0.38)
                 
-                # Sombra paralela con desfase (0, 9)
-                dibujar_linea(municipio, (coord_ciu_x + 0, coord_ciu_y + 9), tam_ciu, (0, 0, 0, 150), "Bold", alineacion="left")
+                # Dibujamos la sombra en una capa transparente para desenfocarla
+                capa_sombra = Image.new("RGBA", lienzo.size, (0, 0, 0, 0))
+                draw_sombra = ImageDraw.Draw(capa_sombra)
+                
+                # Redireccionamos temporalmente draw para dibujar en la capa de sombra
+                draw_orig = draw
+                draw = draw_sombra
+                dibujar_linea(municipio, (coord_ciu_x + 0, coord_ciu_y + 9), tam_ciu, (0, 0, 0, 200), "Bold", alineacion="left")
+                draw = draw_orig
+                
+                # Desenfocamos la sombra y la combinamos con el lienzo
+                capa_sombra_borrosa = capa_sombra.filter(ImageFilter.GaussianBlur(radius=8))
+                lienzo = Image.alpha_composite(lienzo, capa_sombra_borrosa)
+                draw = ImageDraw.Draw(lienzo)  # Recreamos el contexto de dibujo para continuar
+                
                 # Texto principal con color dinámico
                 dibujar_linea(municipio, (coord_ciu_x, coord_ciu_y), tam_ciu, ajuste_ciu.get("color", "#FFFFFF"), "Bold", alineacion="left")
                 
