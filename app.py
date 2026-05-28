@@ -41,7 +41,7 @@ FORMATOS = {
         "ancho_max_lugar": 620,
         "ancho_max_direccion": 619,
         "ancho_max_publico": 701,
-        "ancho_max_ciudad": 1000
+        "ancho_max_ciudad": 1166
     },
     "Historia": {
         "archivo": "assets/PLANTILLA-EON-2026_HISTORIA.png",
@@ -71,7 +71,7 @@ FORMATOS = {
         "ancho_max_lugar": 733,
         "ancho_max_direccion": 733,
         "ancho_max_publico": 733,
-        "ancho_max_ciudad": 1000
+        "ancho_max_ciudad": 1127
     }
 }
 
