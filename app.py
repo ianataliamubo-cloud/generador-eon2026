@@ -6,8 +6,8 @@ import textwrap
 # ==========================================
 # 1. CONFIGURACIÓN INICIAL
 # ==========================================
-st.set_page_config(page_title="Generador CNSC Pro", layout="wide")
-st.title("Automatización de Piezas socializaciones CNSC")
+st.set_page_config(page_title="Generador EON 2026", layout="wide")
+st.title("Automatización de Piezas EON 2026 - CNSC")
 
 # ==========================================
 # 2. CONFIGURACIÓN POR FORMATO
@@ -17,49 +17,49 @@ FORMATOS = {
         "archivo": "assets/PLANTILLA-EON-2026_POST.png", 
         "escala_alto": 900,  
         "coords": {
-            "desc": (200, 1986),
-            "ciudad": (350, 900),
-            "dia": (2019, 1702),
-            "ano": (2019, 1815),
-            "hora": (540, 2516),
-            "lugar": (1091, 2431),
-            "direccion": (1091, 2517),
-            "publico": (1623, 2330)
+            "desc": (140, 1530),
+            "ciudad": (155, 185),
+            "dia": (230, 2160),
+            "ano": (230, 2230),
+            "hora": (890, 2170),
+            "lugar": (1430, 2100),
+            "direccion": (1430, 2170),
+            "publico": (1500, 2430)
         },
-        "ancho_caja_desc": 1900, # Ancho en píxeles
-        "tamano_fuente_desc": 55,
-        "tamano_fuente_ciudad": 80,
-        "tamano_fuente_dia": 100,
-        "tamano_fuente_ano": 55,
-        "tamano_fuente_hora": 70,
-        "tamano_fuente_lugar": 75,
-        "tamano_fuente_direccion": 40,
-        "ancho_caja_direccion": 921,
-        "tamano_fuente_publico": 60
+        "ancho_caja_desc": 1960,
+        "tamano_fuente_desc": 48,
+        "tamano_fuente_ciudad": 110,
+        "tamano_fuente_dia": 55,
+        "tamano_fuente_ano": 45,
+        "tamano_fuente_hora": 55,
+        "tamano_fuente_lugar": 60,
+        "tamano_fuente_direccion": 28,
+        "ancho_caja_direccion": 730,
+        "tamano_fuente_publico": 50
     },
     "Historia": {
         "archivo": "assets/PLANTILLA-EON-2026_HISTORIA.png",
         "escala_alto": 1200, 
         "coords": {
-            "desc": (213, 2739),
-            "ciudad": (459, 1200),
-            "dia": (2029, 2375),
-            "ano": (2029, 2489),
-            "hora": (500, 3562),
-            "lugar": (1072, 3487),
-            "direccion": (1072, 3569),
-            "publico": (1256, 3185)
+            "desc": (140, 2050),
+            "ciudad": (155, 270),
+            "dia": (190, 2700),
+            "ano": (190, 2780),
+            "hora": (770, 2730),
+            "lugar": (1350, 2660),
+            "direccion": (1350, 2740),
+            "publico": (1400, 3100)
         },
-        "ancho_caja_desc": 1888, # Ancho en píxeles
-        "tamano_fuente_desc": 65,
-        "tamano_fuente_ciudad": 80,
-        "tamano_fuente_dia": 120,
-        "tamano_fuente_ano": 55,
-        "tamano_fuente_hora": 80,
-        "tamano_fuente_lugar": 80,
-        "tamano_fuente_direccion": 45,
-        "ancho_caja_direccion": 1000,
-        "tamano_fuente_publico": 100
+        "ancho_caja_desc": 1960,
+        "tamano_fuente_desc": 50,
+        "tamano_fuente_ciudad": 110,
+        "tamano_fuente_dia": 55,
+        "tamano_fuente_ano": 45,
+        "tamano_fuente_hora": 55,
+        "tamano_fuente_lugar": 60,
+        "tamano_fuente_direccion": 28,
+        "ancho_caja_direccion": 780,
+        "tamano_fuente_publico": 55
     }
 }
 
@@ -97,15 +97,15 @@ col_controles, col_preview = st.columns([1, 1.2])
 with col_controles:
     st.subheader("Datos y Controles")
     
-    descripcion_txt = st.text_area("Texto Descripción", value="La CNSC te invita a participar en la socialización de las generalidades del proceso de selección en las modalidades de ascenso y abierto, así como las vacantes que se ofertan para personas con discapacidad.")
+    descripcion_txt = st.text_area("Texto Descripción", value="Una jornada para conocer las generalidades de este concurso de méritos, las vacantes que se ofertan y cómo inscribirse.")
 
     municipio = st.text_area("Ciudad", placeholder="Ej: San Andrés\nIslas")
     
     with st.expander("🛠️ Ajustes de Ciudad por Formato"):
         tabs_ciu = st.tabs(["Post (Instagram)", "Historia"])
         defaults_ciu = {
-            "Post (Instagram)": {"t": 100, "x": -20, "y": -650},
-            "Historia": {"t": 136, "x": -40, "y": -709}
+            "Post (Instagram)": {"t": 0, "x": 0, "y": 0},
+            "Historia": {"t": 0, "x": 0, "y": 0}
         }
         
         ajustes_ciudad = {}
@@ -141,14 +141,14 @@ with col_controles:
         st.markdown("📅 **Fecha**")
         c1, c2 = st.columns(2)
         with c1:
-            dia_txt = st.text_input("Día", value="21 Y 22")
+            dia_txt = st.text_input("Día", value="5 de Junio")
         with c2:
-            ano_txt = st.text_input("Año (y mes)", value="de abril de 2026")
+            ano_txt = st.text_input("Año (y mes)", value="de 2026")
             
-    hora_txt = st.text_input("Hora", value="9:00 am")
+    hora_txt = st.text_input("Hora", value="8:00 am")
     lugar_txt = st.text_input("Lugar (Nombre)", value="SENA")
-    direccion_txt = st.text_area("Dirección", value="Auditorio Centro de la Industria, la Empresa y los Servicios (CIES) Carrera 9 No. 68 - 50")
-    publico_txt = st.text_input("Público Objetivo", value="Aforo limitado")
+    direccion_txt = st.text_area("Dirección", value="Centro Gestión de mercados - Avenida Caracas con Calle 52")
+    publico_txt = st.text_input("Público Objetivo", value="Entrada libre")
 
 with col_preview:
     st.subheader("Ventana de Previsualización")
@@ -298,7 +298,7 @@ with col_preview:
                 # 1. Descripción (Usa valores fijos sin opciones de edición)
                 final_tamano = config["tamano_fuente_desc"]
                 final_ancho = config["ancho_caja_desc"]
-                dibujar_parrafo(descripcion_txt, coords_base["desc"], final_tamano, "#FFFFFF", "Regular", final_ancho)
+                dibujar_parrafo(descripcion_txt, coords_base["desc"], final_tamano, "#1e3a5c", "Regular", final_ancho)
                 
                 # 2. Ciudad + Ajuste X e Y dinámico
                 ajuste_ciu = ajustes_ciudad.get(formato, {"t": 0, "x": 0, "y": 0})
@@ -306,7 +306,7 @@ with col_preview:
                 coord_ciu_y = coords_base["ciudad"][1] + ajuste_ciu["y"]
                 tam_ciu = config.get("tamano_fuente_ciudad", 80) + ajuste_ciu["t"]
                 
-                dibujar_linea(municipio.upper(), (coord_ciu_x, coord_ciu_y), tam_ciu, "#cffaff", "Bold", alineacion="left")
+                dibujar_linea(municipio.upper(), (coord_ciu_x, coord_ciu_y), tam_ciu, "#FFFFFF", "Bold", alineacion="left")
                 
                 # 3. Datos fijos 
                 tam_dia_base = config.get("tamano_fuente_dia", 40)
@@ -322,12 +322,12 @@ with col_preview:
                 final_tam_ano = tam_ano_base
                 
                 # Formatos que separan día y año
-                dibujar_linea(dia_txt, coords_base["dia"], final_tam_dia, "#FFFFFF", "Bold", alineacion="right")
-                dibujar_linea(ano_txt, coords_base["ano"], final_tam_ano, "#FFFFFF", "Regular", alineacion="right")
-                dibujar_linea(hora_txt, coords_base["hora"], tam_hora, "#FFFFFF", "Bold")
-                dibujar_linea(lugar_txt, coords_base["lugar"], tam_lugar, "#2caafb", "Bold")
-                dibujar_parrafo(direccion_txt, coords_base["direccion"], tam_dir, "#FFFFFF", "Regular", ancho_dir, justificar=False)
-                dibujar_linea(publico_txt, coords_base["publico"], tam_pub, "#FFFFFF", "Bold")
+                dibujar_linea(dia_txt, coords_base["dia"], final_tam_dia, "#1e3a5c", "Bold", alineacion="left")
+                dibujar_linea(ano_txt, coords_base["ano"], final_tam_ano, "#1e3a5c", "Regular", alineacion="left")
+                dibujar_linea(hora_txt, coords_base["hora"], tam_hora, "#1e3a5c", "Bold")
+                dibujar_linea(lugar_txt, coords_base["lugar"], tam_lugar, "#1e3a5c", "Bold")
+                dibujar_parrafo(direccion_txt, coords_base["direccion"], tam_dir, "#1e3a5c", "Regular", ancho_dir, justificar=False)
+                dibujar_linea(publico_txt, coords_base["publico"], tam_pub, "#1e3a5c", "Bold")
 
                 st.image(lienzo, use_container_width=True)
                 
