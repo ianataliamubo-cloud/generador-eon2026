@@ -17,7 +17,7 @@ FORMATOS = {
         "archivo": "assets/PLANTILLA-EON-2026_POST.png", 
         "escala_alto": 900,  
         "coords": {
-            "desc": (274, 1846),
+            "desc": (250, 1846),
             "ciudad": (247, 261),
             "dia": (513, 2255),
             "ano": (513, 2367),
