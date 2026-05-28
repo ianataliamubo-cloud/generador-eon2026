@@ -34,11 +34,11 @@ FORMATOS = {
         "tamano_fuente_hora": 67,
         "tamano_fuente_lugar": 67,
         "tamano_fuente_direccion": 33,
-        "ancho_caja_direccion": 122,
+        "ancho_caja_direccion": 624,
         "tamano_fuente_publico": 70,
         "ancho_max_fecha": 405,
         "ancho_max_hora": 319,
-        "ancho_max_lugar": 122,
+        "ancho_max_lugar": 624,
         "ancho_max_direccion": 619,
         "ancho_max_publico": 701
     },
