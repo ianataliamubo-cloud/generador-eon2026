@@ -36,7 +36,7 @@ FORMATOS = {
         "tamano_fuente_direccion": 28,
         "ancho_caja_direccion": 730,
         "tamano_fuente_publico": 50,
-        "ancho_max_fecha": 280
+        "ancho_max_fecha": 405
     },
     "Historia": {
         "archivo": "assets/PLANTILLA-EON-2026_HISTORIA.png",
