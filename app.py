@@ -311,6 +311,9 @@ with col_preview:
                 # Centrado vertical automático: restamos un porcentaje del tamaño de fuente a la Y del centro del pin
                 coord_ciu_y = coords_base["ciudad"][1] - int(tam_ciu * 0.38)
                 
+                # Sombra paralela con desfase (0, 9)
+                dibujar_linea(municipio, (coord_ciu_x + 0, coord_ciu_y + 9), tam_ciu, (0, 0, 0, 150), "Bold", alineacion="left")
+                # Texto principal blanco
                 dibujar_linea(municipio, (coord_ciu_x, coord_ciu_y), tam_ciu, "#FFFFFF", "Bold", alineacion="left")
                 
                 # 3. Datos fijos 
