@@ -319,7 +319,7 @@ with col_preview:
                 # Redireccionamos temporalmente draw para dibujar en la capa de sombra
                 draw_orig = draw
                 draw = draw_sombra
-                dibujar_linea(municipio, (coord_ciu_x + 0, coord_ciu_y + 9), tam_ciu, (0, 0, 0, 200), "Bold", alineacion="left")
+                dibujar_linea(municipio, (coord_ciu_x + 0, coord_ciu_y + 9), tam_ciu, (0, 0, 0, 255), "Bold", alineacion="left")
                 draw = draw_orig
                 
                 # Desenfocamos la sombra y la combinamos con el lienzo
