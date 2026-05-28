@@ -27,7 +27,7 @@ FORMATOS = {
             "publico": (1321, 2550)
         },
         "ancho_caja_desc": 1709,
-        "tamano_fuente_desc": 70,
+        "tamano_fuente_desc": 65,
         "tamano_fuente_ciudad": 164,
         "tamano_fuente_dia": 92,
         "tamano_fuente_ano": 52,
