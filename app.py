@@ -114,8 +114,8 @@ with col_controles:
     with st.expander("🛠️ Ajustes de Ciudad por Formato"):
         tabs_ciu = st.tabs(["Post (Instagram)", "Historia"])
         defaults_ciu = {
-            "Post (Instagram)": {"t": 0, "x": 0, "y": 0},
-            "Historia": {"t": 0, "x": 0, "y": 0}
+            "Post (Instagram)": {"t": 0, "x": 0, "y": 0, "color": "#FFFFFF"},
+            "Historia": {"t": 0, "x": 0, "y": 0, "color": "#FFFFFF"}
         }
         
         ajustes_ciudad = {}
@@ -123,7 +123,8 @@ with col_controles:
             d = defaults_ciu[fmt]
             with tabs_ciu[i]:
                 t_ciu_off = st.number_input(f"Tamaño Ciudad (±px)", value=d["t"], step=1, key=f"t_ciu_{fmt}")
-                ajustes_ciudad[fmt] = {"t": t_ciu_off}
+                color_ciu = st.color_picker("Color Ciudad", value=d["color"], key=f"color_ciu_{fmt}")
+                ajustes_ciudad[fmt] = {"t": t_ciu_off, "color": color_ciu}
                 
     with st.expander("🖼️ Ajustes de Foto de Fondo"):
         tabs_foto = st.tabs(["Post (Instagram)", "Historia"])
@@ -305,7 +306,7 @@ with col_preview:
                 dibujar_parrafo(descripcion_txt, coords_base["desc"], final_tamano, "#1e3a5c", "Regular", final_ancho)
                 
                 # 2. Ciudad + Ajuste de tamaño dinámico
-                ajuste_ciu = ajustes_ciudad.get(formato, {"t": 0})
+                ajuste_ciu = ajustes_ciudad.get(formato, {"t": 0, "color": "#FFFFFF"})
                 coord_ciu_x = coords_base["ciudad"][0]
                 tam_ciu = config.get("tamano_fuente_ciudad", 80) + ajuste_ciu["t"]
                 # Centrado vertical automático: restamos un porcentaje del tamaño de fuente a la Y del centro del pin
@@ -313,8 +314,8 @@ with col_preview:
                 
                 # Sombra paralela con desfase (0, 9)
                 dibujar_linea(municipio, (coord_ciu_x + 0, coord_ciu_y + 9), tam_ciu, (0, 0, 0, 150), "Bold", alineacion="left")
-                # Texto principal blanco
-                dibujar_linea(municipio, (coord_ciu_x, coord_ciu_y), tam_ciu, "#FFFFFF", "Bold", alineacion="left")
+                # Texto principal con color dinámico
+                dibujar_linea(municipio, (coord_ciu_x, coord_ciu_y), tam_ciu, ajuste_ciu.get("color", "#FFFFFF"), "Bold", alineacion="left")
                 
                 # 3. Datos fijos 
                 tam_dia_base = config.get("tamano_fuente_dia", 40)
