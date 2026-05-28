@@ -18,7 +18,7 @@ FORMATOS = {
         "escala_alto": 900,  
         "coords": {
             "desc": (274, 1830),
-            "ciudad": (0, 3),
+            "ciudad": (235, 308),
             "dia": (513, 2255),
             "ano": (513, 2367),
             "hora": (1137, 2309),
