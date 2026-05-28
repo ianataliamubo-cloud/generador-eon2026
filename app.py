@@ -52,7 +52,7 @@ FORMATOS = {
             "ano": (230, 3053),
             "hora": (1027, 2983),
             "lugar": (1287, 2952),
-            "direccion": (1287, 3053),
+            "direccion": (1287, 3040),
             "publico": (1287, 3340)
         },
         "ancho_caja_desc": 1798,
@@ -64,7 +64,7 @@ FORMATOS = {
         "tamano_fuente_lugar": 77,
         "tamano_fuente_direccion": 37,
         "ancho_caja_direccion": 733,
-        "tamano_fuente_publico": 94,
+        "tamano_fuente_publico": 90,
         "ancho_max_fecha": 545,
         "ancho_max_hora": 386,
         "ancho_max_lugar": 733,
