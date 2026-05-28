@@ -18,7 +18,7 @@ FORMATOS = {
         "escala_alto": 900,  
         "coords": {
             "desc": (274, 1830),
-            "ciudad": (235, 247),
+            "ciudad": (235, 308),
             "dia": (513, 2255),
             "ano": (513, 2367),
             "hora": (1137, 2309),
@@ -47,7 +47,7 @@ FORMATOS = {
         "escala_alto": 1200, 
         "coords": {
             "desc": (140, 2050),
-            "ciudad": (155, 270),
+            "ciudad": (250, 645),
             "dia": (236, 2946),
             "ano": (140, 2750),
             "hora": (770, 2730),
@@ -307,8 +307,9 @@ with col_preview:
                 # 2. Ciudad + Ajuste de tamaño dinámico
                 ajuste_ciu = ajustes_ciudad.get(formato, {"t": 0})
                 coord_ciu_x = coords_base["ciudad"][0]
-                coord_ciu_y = coords_base["ciudad"][1]
                 tam_ciu = config.get("tamano_fuente_ciudad", 80) + ajuste_ciu["t"]
+                # Centrado vertical automático: restamos un porcentaje del tamaño de fuente a la Y del centro del pin
+                coord_ciu_y = coords_base["ciudad"][1] - int(tam_ciu * 0.38)
                 
                 dibujar_linea(municipio, (coord_ciu_x, coord_ciu_y), tam_ciu, "#FFFFFF", "Bold", alineacion="left")
                 
