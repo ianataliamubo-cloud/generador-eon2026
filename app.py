@@ -40,7 +40,8 @@ FORMATOS = {
         "ancho_max_hora": 319,
         "ancho_max_lugar": 620,
         "ancho_max_direccion": 619,
-        "ancho_max_publico": 701
+        "ancho_max_publico": 701,
+        "ancho_max_ciudad": 1000
     },
     "Historia": {
         "archivo": "assets/PLANTILLA-EON-2026_HISTORIA.png",
@@ -69,7 +70,8 @@ FORMATOS = {
         "ancho_max_hora": 386,
         "ancho_max_lugar": 733,
         "ancho_max_direccion": 733,
-        "ancho_max_publico": 733
+        "ancho_max_publico": 733,
+        "ancho_max_ciudad": 1000
     }
 }
 
@@ -309,6 +311,18 @@ with col_preview:
                 ajuste_ciu = ajustes_ciudad.get(formato, {"t": 0, "color": "#FFFFFF"})
                 coord_ciu_x = coords_base["ciudad"][0]
                 tam_ciu = config.get("tamano_fuente_ciudad", 80) + ajuste_ciu["t"]
+                
+                # Auto-ajuste para Ciudad: reducir tamaño si el texto excede el ancho máximo
+                ancho_max_ciu = config.get("ancho_max_ciudad", 0)
+                if ancho_max_ciu > 0:
+                    while tam_ciu > 15:
+                        font_test = obtener_fuente("Bold", tam_ciu)
+                        lineas_ciu = municipio.split('\n')
+                        max_w = max([draw.textlength(line, font=font_test) for line in lineas_ciu]) if lineas_ciu else 0
+                        if max_w <= ancho_max_ciu:
+                            break
+                        tam_ciu -= 1
+                
                 # Centrado vertical automático: restamos un porcentaje del tamaño de fuente a la Y del centro del pin
                 coord_ciu_y = coords_base["ciudad"][1] - int(tam_ciu * 0.38)
                 
