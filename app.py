@@ -35,7 +35,8 @@ FORMATOS = {
         "tamano_fuente_lugar": 60,
         "tamano_fuente_direccion": 28,
         "ancho_caja_direccion": 730,
-        "tamano_fuente_publico": 50
+        "tamano_fuente_publico": 50,
+        "ancho_max_fecha": 280
     },
     "Historia": {
         "archivo": "assets/PLANTILLA-EON-2026_HISTORIA.png",
@@ -59,7 +60,8 @@ FORMATOS = {
         "tamano_fuente_lugar": 60,
         "tamano_fuente_direccion": 28,
         "ancho_caja_direccion": 780,
-        "tamano_fuente_publico": 55
+        "tamano_fuente_publico": 55,
+        "ancho_max_fecha": 280
     }
 }
 
@@ -320,6 +322,21 @@ with col_preview:
                 
                 final_tam_dia = tam_dia_base
                 final_tam_ano = tam_ano_base
+                
+                # Auto-ajuste: reducir tamaño si el texto excede el ancho máximo
+                ancho_max_fecha = config.get("ancho_max_fecha", 300)
+                
+                while final_tam_dia > 20:
+                    font_test = obtener_fuente("Bold", final_tam_dia)
+                    if draw.textlength(dia_txt, font=font_test) <= ancho_max_fecha:
+                        break
+                    final_tam_dia -= 1
+                
+                while final_tam_ano > 20:
+                    font_test = obtener_fuente("Regular", final_tam_ano)
+                    if draw.textlength(ano_txt, font=font_test) <= ancho_max_fecha:
+                        break
+                    final_tam_ano -= 1
                 
                 # Formatos que separan día y año
                 dibujar_linea(dia_txt, coords_base["dia"], final_tam_dia, "#1e3a5c", "Bold", alineacion="left")
