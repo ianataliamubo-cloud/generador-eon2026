@@ -13,7 +13,7 @@ st.title("Socializaciones EON-2026")
 # 2. CONFIGURACIÓN POR FORMATO
 # ==========================================
 FORMATOS = {
-    "Post (Instagram)": {
+    "Post": {
         "archivo": "assets/PLANTILLA-EON-2026_POST.png", 
         "escala_alto": 900,  
         "coords": {
@@ -112,14 +112,14 @@ with col_controles:
     municipio = st.text_area("Ciudad", placeholder="Ej: San Andrés\nIslas")
     
     with st.expander("🛠️ Ajustes de Ciudad por Formato"):
-        tabs_ciu = st.tabs(["Post (Instagram)", "Historia"])
+        tabs_ciu = st.tabs(["Post", "Historia"])
         defaults_ciu = {
-            "Post (Instagram)": {"t": 0, "x": 0, "y": 0, "color": "#FFFFFF"},
+            "Post": {"t": 0, "x": 0, "y": 0, "color": "#FFFFFF"},
             "Historia": {"t": 0, "x": 0, "y": 0, "color": "#FFFFFF"}
         }
         
         ajustes_ciudad = {}
-        for i, fmt in enumerate(["Post (Instagram)", "Historia"]):
+        for i, fmt in enumerate(["Post", "Historia"]):
             d = defaults_ciu[fmt]
             with tabs_ciu[i]:
                 t_ciu_off = st.number_input(f"Tamaño Ciudad (±px)", value=d["t"], step=1, key=f"t_ciu_{fmt}")
@@ -127,9 +127,9 @@ with col_controles:
                 ajustes_ciudad[fmt] = {"t": t_ciu_off, "color": color_ciu}
                 
     with st.expander("🖼️ Ajustes de Foto de Fondo"):
-        tabs_foto = st.tabs(["Post (Instagram)", "Historia"])
+        tabs_foto = st.tabs(["Post", "Historia"])
         ajustes_foto = {}
-        for i, fmt in enumerate(["Post (Instagram)", "Historia"]):
+        for i, fmt in enumerate(["Post", "Historia"]):
             with tabs_foto[i]:
                 cf1, cf2, cf3 = st.columns(3)
                 with cf1:
