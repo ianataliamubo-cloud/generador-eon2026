@@ -67,7 +67,7 @@ FORMATOS = {
             "hora": (1027, 2983),
             "lugar": (1287, 2952),
             "direccion": (1287, 3037),
-            "publico": (1287, 3646)
+            "publico": (1287, 3636)
         },
         "ancho_caja_desc": 1798,
         "tamano_fuente_desc": 80,
